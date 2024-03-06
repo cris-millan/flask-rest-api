@@ -1,0 +1,12 @@
+flask
+:flask-smorest
+flask-jwt-extended
+python-dotenv
+sqlalchemy
+flask-sqlalchemy
+psycopg2
+http-status-codes
+passlib
+redis
+flask-migrate
+sqlalchemyseed

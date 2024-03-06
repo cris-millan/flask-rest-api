@@ -1,0 +1,17 @@
+{
+    "model": "src.data.postgres.models.RoleModel",
+    "data": [
+        {
+            "id": "06d1fd13-5eb5-4a31-8966-b74381799b39",
+            "role_name": "admin",
+            "role_code": "admin",
+            "role_description": "Admin role has access to all the services"
+        },
+        {
+            "id": "d7c5b2e6-86e0-41c6-9cfe-4989602e7381",
+            "role_name": "client",
+            "role_code": "client",
+            "role_description": "client role has access to client services"
+        }
+    ]
+}

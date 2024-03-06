@@ -1,0 +1,18 @@
+[
+    {
+        "model": "src.data.postgres.models.UserModel",
+        "data": [
+            {
+                "first_name": "Cristian Ruben",
+                "last_name": "Millan Ruiz",
+                "phone_number": "6862768541",
+                "email": "cristian.millan.dev@gmail.com",
+                "password": "admin",
+                "is_log_in": true,
+                "is_email_verify": true,
+                "is_phone_verify": true,
+                "role_id": "06d1fd13-5eb5-4a31-8966-b74381799b39"
+            }
+        ]
+    }
+]
