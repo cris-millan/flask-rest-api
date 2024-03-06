@@ -1,5 +1,5 @@
 flask
-:flask-smorest
+flask-smorest
 flask-jwt-extended
 python-dotenv
 sqlalchemy
