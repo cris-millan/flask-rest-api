@@ -27,6 +27,7 @@ blue_print = Blueprint("users", __name__, description="Operation on users")
 @blue_print.route("/users")
 class User(MethodView):
 
+    @jwt_required()
     @blue_print.arguments(UserGetRequestSchema, location="query")
     @blue_print.response(200, UserResponse(many=True))
     def get(self, filters):
@@ -39,6 +40,7 @@ class User(MethodView):
         use_case = UsersPostUseCase(UserRepository(), RolesRepository())
         return use_case.run(user_data)
 
+    @jwt_required()
     @blue_print.arguments(UserPatchRequest, location="json")
     @blue_print.arguments(UserQuerySchema, location="query")
     @blue_print.response(201, UserResponse)
@@ -47,6 +49,7 @@ class User(MethodView):
         use_case = UserPatchUseCase(UserRepository())
         return use_case.run(user_data["users"])
 
+    @jwt_required()
     @blue_print.arguments(UserDeleteRequest, location="query")
     @blue_print.response(HTTPStatus.NO_CONTENT)
     def delete(self, user_data):

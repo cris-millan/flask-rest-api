@@ -7,4 +7,4 @@ COPY . .
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-CMD ["flask", "run"]
+CMD ["/bin/bash", "docker-entrypoint.sh"]

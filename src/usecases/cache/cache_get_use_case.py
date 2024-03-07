@@ -6,19 +6,15 @@ from src.drivers import CacheDriverFactory
 from src.usecases.use_case_base import UseCaseBase
 
 
-class CachePostUseCase(UseCaseBase):
+class CacheGetUseCase(UseCaseBase):
 
     def __init__(self):
         self.cache_driver = CacheDriverFactory.create_driver()
 
     def run(self, data):
-        return self.set_in_cache(data)
+        data = self.cache_driver.get(key=data["key"])
 
-    def set_in_cache(self, data: dict):
-
-        response = self.cache_driver.set(data["key"], data["value_str"])
-
-        if response["status"] == "ERROR":
+        if data["status"] == "ERROR":
             return abort(
                 HTTPStatus.INTERNAL_SERVER_ERROR,
                 message="unexpected error",
@@ -30,10 +26,7 @@ class CachePostUseCase(UseCaseBase):
 
         return {
             "status": "success",
-            "data": {
-                data["key"]: self.cache_driver.get(data["key"])["data"]
-            }
+            "data": data["data"]
         }
-
 
 
