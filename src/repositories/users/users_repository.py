@@ -88,7 +88,7 @@ class UserRepository(UserRepositoryBase):
             }
 
         except SQLAlchemyError as error:
-            self.logger.error(error)
+            print(error)
             return {
                 "status": "ERROR",
                 "id": "XXXX",

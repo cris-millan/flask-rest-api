@@ -6,6 +6,8 @@ from flask_jwt_extended import jwt_required
 from flask_jwt_extended import get_jwt
 
 from http import HTTPStatus
+
+from src.repositories import RolesRepository
 from src.schemas.request.users.users_post_request import UserPostRequest
 from src.schemas.request.users.user_get_request import UserGetRequestSchema
 from src.schemas.request import UserDeleteRequest
@@ -34,7 +36,7 @@ class User(MethodView):
     @blue_print.arguments(UserPostRequest)
     @blue_print.response(201, UserResponse)
     def post(self, user_data):
-        use_case = UsersPostUseCase(UserRepository())
+        use_case = UsersPostUseCase(UserRepository(), RolesRepository())
         return use_case.run(user_data)
 
     @blue_print.arguments(UserPatchRequest, location="json")
